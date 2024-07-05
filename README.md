@@ -42,6 +42,22 @@ npm run ios
 yarn ios
 ```
 
+## For server
+
+1. install <strong> ngrok </strong>
+
+2. run `npx json-server db.json`
+
+3. set ngrok auth token
+
+4. run `ngrok http 3000`
+
+5. change axios baseUrl `src/services/HttpService.ts`
+
+
+
+
+
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.

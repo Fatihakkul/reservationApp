@@ -2,8 +2,6 @@ import {FC, ReactNode, useCallback} from 'react';
 import {View, ViewStyle, Pressable, StyleProp} from 'react-native';
 import {theme} from '../theme';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Feather from 'react-native-vector-icons/Feather';
-import Svg from '../../assets/svg';
 import {useAppNavigation} from '../hooks/useAppNavigation';
 import T from './T';
 
@@ -24,17 +22,11 @@ type Props = {
 const Header: FC<Props> = ({
   goBack,
   title,
-  onGoBack,
   style,
   customBackIcon,
   customBackIconPress,
 }): ReactNode => {
   const navigation = useAppNavigation();
-
-
-
-
-
   const renderGoBack = useCallback(() => {
     if (goBack) {
       return (

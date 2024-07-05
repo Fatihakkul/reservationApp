@@ -286,7 +286,7 @@ const ReservationForm: React.FC<IReservationForm> = ({
             : 'Bu alan zorunludur.'}
         </Text>
       )}
-      <CustomButton onPress={handleSubmit(onSubmit)} title="Kayıt ol" />
+      <CustomButton onPress={handleSubmit(onSubmit)} title="Kaydet" />
     </View>
   );
 };

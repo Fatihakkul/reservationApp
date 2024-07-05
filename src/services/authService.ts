@@ -19,12 +19,4 @@ const register = async (user: TUser) => {
   return res;
 };
 
-// const passwordResetRequest = async ({email}) => {
-//   return api
-//     .post('/user/password-reset-request', {
-//       email,
-//     })
-//     .then(response => response.data);
-// };
-
 export {login, register};

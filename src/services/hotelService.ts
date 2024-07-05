@@ -6,12 +6,4 @@ const getHotels = async (): Promise<THotel[]> => {
   return data;
 };
 
-// const passwordResetRequest = async ({email}) => {
-//   return api
-//     .post('/user/password-reset-request', {
-//       email,
-//     })
-//     .then(response => response.data);
-// };
-
 export {getHotels};

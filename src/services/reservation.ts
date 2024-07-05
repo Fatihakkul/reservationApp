@@ -24,12 +24,4 @@ const deleteReservation = async (id: number) => {
   return data;
 };
 
-// const passwordResetRequest = async ({email}) => {
-//   return api
-//     .post('/user/password-reset-request', {
-//       email,
-//     })
-//     .then(response => response.data);
-// };
-
 export {addReservation, updateReservation, getReservation, deleteReservation};

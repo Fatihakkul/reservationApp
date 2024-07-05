@@ -1,11 +1,9 @@
 import {Controller, useForm} from 'react-hook-form';
-import {Alert, Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {theme} from '../../theme';
 import CustomButton from '../custom/CustomButton';
 import {useCallback, useEffect, useState} from 'react';
-import {register} from '../../services/authService';
 import CustomInput from '../custom/CustomInput';
-import {useAppNavigation} from '../../hooks/useAppNavigation';
 import {THotel, TReservation, TUser} from '../../types';
 import {format} from 'date-fns';
 import DatePicker from 'react-native-date-picker';

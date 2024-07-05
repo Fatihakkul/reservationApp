@@ -22,7 +22,7 @@ const ReservationItem: React.FC<IReservationItemProps> = ({
       style={[
         theme.backgorunds.bgPrimaryColor,
         theme.layout.w100,
-        theme.layout.paddingY,
+        theme.layout.paddingY_15,
         theme.layout.paddingX,
         theme.layout.flexDirectionRow,
         theme.layout.justifyBetween,
@@ -31,20 +31,26 @@ const ReservationItem: React.FC<IReservationItemProps> = ({
       <View style={[theme.layout.width90_Layout]}>
         <View
           style={[theme.layout.flexDirectionRow, theme.layout.justifyBetween]}>
-          <T text={item.city.name} />
+          <T style={[theme.text.colorWhite]} text={item.city.name} />
           <View>
-            <T text={format(new Date(item.date), 'dd/MM/yyyy')} />
-            <T text={item.time} />
+            <T
+              style={[theme.text.colorWhite]}
+              text={format(new Date(item.date), 'dd/MM/yyyy')}
+            />
+            <T style={[theme.text.colorWhite]} text={item.time} />
           </View>
         </View>
-        <T text={item.note} />
+        <T style={[theme.text.colorWhite]} text={item.note} />
       </View>
       <View style={[theme.layout.justifyBetween]}>
-        <Pressable onPress={() => navigation.navigate('EditReservation',{reservation: item})}>
-          <AntDesign name="edit" size={20} />
+        <Pressable
+          onPress={() =>
+            navigation.navigate('EditReservation', {reservation: item})
+          }>
+          <AntDesign name="edit" size={20} color={theme.colors.white} />
         </Pressable>
         <Pressable onPress={() => deleteItem(item.id)}>
-          <AntDesign name="delete" size={20} />
+          <AntDesign name="delete" size={20} color={theme.colors.white} />
         </Pressable>
       </View>
     </View>

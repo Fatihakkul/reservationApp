@@ -1,14 +1,14 @@
 import React, {PropsWithChildren, useEffect, useMemo, useRef} from 'react';
 import {StyleSheet} from 'react-native';
 import {BottomSheetModal, BottomSheetView} from '@gorhom/bottom-sheet';
+import {theme} from '../../theme';
 
 type Props = PropsWithChildren<{
   children?: React.ReactNode;
   visible?: boolean;
-  backDropColor?: string;
 }>;
 
-const PopupProvider = ({visible, children, backDropColor}: Props) => {
+const PopupProvider = ({visible, children}: Props) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const snapPoints = useMemo(() => ['100%', '100%'], []);
   useEffect(() => {
@@ -28,7 +28,7 @@ const PopupProvider = ({visible, children, backDropColor}: Props) => {
       enableContentPanningGesture={false}
       handleIndicatorStyle={{backgroundColor: 'transparent'}}
       backgroundStyle={{
-        backgroundColor: 'transparent',
+        backgroundColor: theme.backgorunds.bgRgba.backgroundColor,
         borderRadius: 0,
       }}>
       <BottomSheetView style={styles.bottomSheetView}>

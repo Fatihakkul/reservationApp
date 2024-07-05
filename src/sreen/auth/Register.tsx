@@ -1,6 +1,3 @@
-import axios from 'axios';
-import {useEffect} from 'react';
-import {Text, View} from 'react-native';
 import Components from '../../components';
 
 const Register: React.FC = () => {

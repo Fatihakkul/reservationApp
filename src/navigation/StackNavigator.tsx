@@ -3,12 +3,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../types';
 import {screens} from '../sreen';
 import TabNavigator from './TabNavigator';
+import {useAppSelector} from '../hooks/useAppNavigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const StackNavigator: React.FC = (): JSX.Element => {
+  const user = useAppSelector(state => state.appState.user);
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{gestureEnabled:false}} >
       <Stack.Screen
         name="Login"
         component={screens.Login}
@@ -34,7 +36,7 @@ const StackNavigator: React.FC = (): JSX.Element => {
         component={screens.NewReservation}
         options={{headerShown: false}}
       />
-        <Stack.Screen
+      <Stack.Screen
         name="CityReservation"
         component={screens.CityReservations}
         options={{headerShown: false}}

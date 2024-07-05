@@ -26,6 +26,7 @@ const ReservationForm: React.FC<IReservationForm> = ({
   onSubmit,
 }) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [openTime, setOpenTime] = useState<boolean>(false);
   const [hotels, setHotels] = useState<THotel[]>([]);
 
   const {
@@ -103,9 +104,9 @@ const ReservationForm: React.FC<IReservationForm> = ({
                 color: theme.colors.mainColor,
               },
             }}
-            onValueChange={(value: any, index: number)=>{
-              const hotel = hotels.find((item)=>item.id === value)
-              onChange(hotel)
+            onValueChange={(value: any, index: number) => {
+              const hotel = hotels.find(item => item.id === value);
+              onChange(hotel);
             }}
           />
         )}
@@ -132,23 +133,30 @@ const ReservationForm: React.FC<IReservationForm> = ({
           <View>
             <TouchableOpacity
               style={{
-                height: 55,
+                paddingLeft: 20,
+                height: 60,
+                width: '100%',
+                borderTopWidth: 1,
+                borderBottomWidth: 1,
+                borderColor: theme.colors.pastel,
+                justifyContent: 'center',
+                flexDirection: 'row',
+                alignItems: 'center',
                 backgroundColor: theme.colors.white,
-                paddingVertical: 16,
-                paddingHorizontal: 20,
-                marginBottom: 20,
+                borderWidth: 1,
               }}
               onPress={() => setOpen(true)}
               activeOpacity={0.9}>
-              <Text
-                style={{
-                  backgroundColor: '#ffffff',
-                  fontSize: 16,
-                }}>
-                {value
-                  ? format(new Date(value), 'dd/MM/yyyy')
-                  : 'Tarih Seçiniz'}
-              </Text>
+              <View style={[theme.layout.w100]}>
+                <Text
+                  style={{
+                    fontSize: 16,
+                  }}>
+                  {value
+                    ? format(new Date(value), 'dd/MM/yyyy')
+                    : 'Tarih Seçiniz'}
+                </Text>
+              </View>
             </TouchableOpacity>
             <DatePicker
               modal
@@ -190,13 +198,52 @@ const ReservationForm: React.FC<IReservationForm> = ({
           required: true,
         }}
         render={({field: {onChange, onBlur, value}}) => (
-          <CustomInput
-            placeholder="Saat"
-            onBlur={onBlur}
-            onChangeText={onChange}
-            autoCapitalize="none"
-            value={value}
-          />
+          <View>
+            <TouchableOpacity
+              style={{
+                paddingLeft: 20,
+                height: 60,
+                width: '100%',
+                borderTopWidth: 1,
+                borderBottomWidth: 1,
+                borderColor: theme.colors.pastel,
+                justifyContent: 'center',
+                flexDirection: 'row',
+                alignItems: 'center',
+                backgroundColor: theme.colors.white,
+                borderWidth: 1,
+              }}
+              onPress={() => setOpenTime(true)}
+              activeOpacity={0.9}>
+              <View style={[theme.layout.w100]}>
+                <Text
+                  style={{
+                    fontSize: 16,
+                  }}>
+                  {value ? value : 'Saat Seçiniz'}
+                </Text>
+              </View>
+            </TouchableOpacity>
+            <DatePicker
+              modal
+              open={openTime}
+              mode="time"
+              date={new Date(new Date().setHours(0, 0, 0, 0))}
+              locale="en_GB"
+              cancelText="İptal"
+              confirmText="Onayla"
+              title="Saat Seçiniz"
+              is24hourSource="locale"
+              onConfirm={date => {
+                console.log(date);
+                setOpenTime(false);
+                onChange(format(new Date(date), 'HH:MM'));
+              }}
+              onCancel={() => {
+                setOpenTime(false);
+              }}
+            />
+          </View>
         )}
         name="time"
       />

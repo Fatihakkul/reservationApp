@@ -1,9 +1,9 @@
 import {FlatList, View} from 'react-native';
 import Components from '../components';
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useState} from 'react';
 import {theme} from '../theme';
 import {useAppNavigation, useAppSelector} from '../hooks/useAppNavigation';
-import {RootStackParamList, TReservation, TReservationResponse} from '../types';
+import {RootStackParamList, TReservationResponse} from '../types';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'CityReservation'>;
@@ -37,6 +37,7 @@ const CityReservations: React.FC<Props> = ({route}) => {
           theme.layout.w100,
           theme.layout.justifyBetween,
           theme.layout.h100,
+          theme.layout.paddingTop
         ]}>
         <FlatList
           data={reservations?.filter(item => item.city.id === hotel.id)}

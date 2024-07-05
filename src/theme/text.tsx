@@ -126,4 +126,10 @@ export const text = StyleSheet.create({
     fontWeight: '700',
     color: colors.black,
   },
+  error: {
+    color: colors.accentColor,
+  },
+  bold: {
+    fontWeight:"bold",
+  },
 });

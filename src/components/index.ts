@@ -11,6 +11,7 @@ import DeleteReservationPopup from './popup/DeleteReservationPopup';
 
 import TabItem from './items/TabItem';
 import ReservationItem from './items/ReservationItem';
+import MapItem from './items/MapItem';
 
 const Components = {
   CustomInput,
@@ -21,6 +22,7 @@ const Components = {
   Header,
   TabItem,
   ReservationItem,
+  MapItem,
   DeleteReservationPopup,
   SelectField
 };

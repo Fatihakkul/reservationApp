@@ -6,7 +6,7 @@ import {
   useAppSelector,
 } from '../hooks/useAppNavigation';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList, THotel, TReservation} from '../types';
+import {RootStackParamList, TReservation} from '../types';
 import {getReservation, updateReservation} from '../services/reservation';
 import {Alert} from 'react-native';
 import {setReservation} from '../store/slices/appStateSlice';

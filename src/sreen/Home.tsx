@@ -1,9 +1,9 @@
-import {FlatList, View} from 'react-native';
+import {FlatList, Platform, View} from 'react-native';
 import Components from '../components';
 import {useCallback, useEffect, useState} from 'react';
 import {theme} from '../theme';
 import {useAppNavigation, useAppSelector} from '../hooks/useAppNavigation';
-import { TReservation, TReservationResponse } from '../types';
+import { TReservationResponse} from '../types';
 
 const Home: React.FC = () => {
   const navigation = useAppNavigation();
@@ -25,16 +25,31 @@ const Home: React.FC = () => {
     [reservations],
   );
 
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      navigation.addListener('beforeRemove', nav => {
+        if (nav.data.action.type === 'GO_BACK') {
+          nav.preventDefault();
+        }
+      });
+    }
+  }, [navigation]);
+
   return (
     <Components.Container full>
-      <Components.Header title="Home" goBack />
+      <Components.Header title="Ana Sayfa" />
       <View
         style={[
           theme.layout.w100,
           theme.layout.justifyBetween,
           theme.layout.h90,
         ]}>
-        <View style={[theme.layout.w100, theme.layout.paddingBottom]}>
+        <View
+          style={[
+            theme.layout.w100,
+            theme.layout.paddingBottom,
+            theme.layout.paddingTop,
+          ]}>
           <FlatList
             data={reservations}
             renderItem={renderItem}

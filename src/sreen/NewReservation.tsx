@@ -33,7 +33,6 @@ const NewReservation: React.FC = () => {
   return (
     <Components.Container full>
       <Components.Header title="Rezervasyon Oluştur" goBack />
-      <T text={'new reservation'} />
       <Components.ReservationForm user={user} onSubmit={handleSubmit} />
     </Components.Container>
   );

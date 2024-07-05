@@ -1,5 +1,7 @@
 import {TTabs} from '../types';
 import Svg from '../../assets/svg';
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import { theme } from '../theme';
 
 export const tabs: Array<TTabs> = [
   {
@@ -11,14 +13,20 @@ export const tabs: Array<TTabs> = [
   {
     name: 'ReservationMap',
     label: 'Map',
-    icon: Svg.HomeIcon,
-    fillIcon: Svg.FillHomeIcon,
+    icon:()=> <FontAwesome name='map-o' size={20} />,
+    fillIcon:()=> <FontAwesome name='map-o' size={20} color={theme.colors.mainColor}/>,
   },
 ];
 
-export const FONTFAMILY = {
-  BOLD: 'Sailec-Bold',
-  MEDIUM: 'Sailec-Medium',
-  REGULAR: 'Sailec-Regular',
-  THIN: 'Sailec-Thin',
-};
+export const mapStandardStyle = [
+  {
+    elementType: 'labels.icon',
+    stylers: [
+      {
+        visibility: 'off',
+      },
+    ],
+  },
+];
+
+

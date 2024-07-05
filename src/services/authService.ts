@@ -11,14 +11,12 @@ const login = async ({nickname, password}: TUser) => {
     if (user) return user;
     else throw {message: 'Kullanıcı adı veya şifreniz yanlış'};
   }
+  throw {message: 'Kullanıcı bulunamadı', status: 404};
 };
 
 const register = async (user: TUser) => {
-    const res = await HttpService.postRequest<any>(
-        `/user`,
-        user
-      );
-   return res
+  const res = await HttpService.postRequest<any>(`/user`, user);
+  return res;
 };
 
 // const passwordResetRequest = async ({email}) => {
@@ -29,4 +27,4 @@ const register = async (user: TUser) => {
 //     .then(response => response.data);
 // };
 
-export {login,register};
+export {login, register};

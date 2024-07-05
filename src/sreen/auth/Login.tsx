@@ -1,5 +1,4 @@
-import axios from 'axios';
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useState} from 'react';
 import {Alert, View} from 'react-native';
 import Components from '../../components';
 import {useAppDispatch, useAppNavigation} from '../../hooks/useAppNavigation';
@@ -23,8 +22,11 @@ const Login: React.FC = () => {
         dispatch(setReservation(reservations));
         navigation.navigate('TabNavigator');
       }
-    } catch (error) {
+    } catch (error:any) {
       //@ts-ignore
+      if(error?.status === 404){
+        navigation.navigate("Register")
+      }
       Alert.alert('', error?.message);
     }
   }, [txt, password]);
@@ -42,6 +44,7 @@ const Login: React.FC = () => {
           placeholder="Şifrenizi giriniz"
           value={password}
           onChangeText={setPassword}
+          secureTextEntry={true}
         />
         <Components.CustomButton onPress={handleLogin} title="Giriş Yap" />
         <Components.CustomButton

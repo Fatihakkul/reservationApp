@@ -86,7 +86,7 @@ const CustomInput: React.FC<Props> = ({
           flexDirection: 'row',
           justifyContent: 'space-between',
           fontSize: 16,
-          color: theme.colors.mainColor,
+          color: theme.colors.textColor,
          
         }}
         autoCapitalize={autoCapitalize}

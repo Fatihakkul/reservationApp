@@ -9,7 +9,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
 import {appStateSlice} from './slices/appStateSlice';
 
 const rootReducer = combineReducers({
